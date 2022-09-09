@@ -8,10 +8,14 @@
 // Boolean
 // undefined
 
-const a = 10; // 1000 => 10
-// a = 20 // 1001
+// neha => address (reference)
 
-// we cant change the reference for const variable
+const a = 10; // 1000 => 10
+a = 20 // 1001
+
+console.log(a); // 1000
+
+// we cant change the reference for const variable:-
 
 const name = 'divyansh';
 
@@ -24,8 +28,10 @@ const name = 'divyansh';
 
 const obj1 = { // refrence doesn't change 
     // key:value
-    fname: 'div'
+    fname: 'div' // no reference
 } // 2000
+
+obj1 = {}; // 2001
 
 // obj1['fname'] = 'divyansh' // read-inly 
 obj1.fname = 'new';
@@ -68,6 +74,8 @@ null === undefined // false
 
 // var => ES5
 
+// there are 3 types of scope:
+
 // global scope
 var t = 20;
 
@@ -78,11 +86,14 @@ var t = 20;
 // block level scope:
 // let , const => es6
 
+
+
 {
     const f = 10;
-    console.log(f);
-
+    console.log(f); // 10
 }
+
+console.log(f); // undefined
 
 {
     const f = 20;
@@ -101,17 +112,19 @@ function sum(){
 
 sum();
 
-// hoisting :
+// hoisting :- js default behaviour 
 
 var t = 10;
 
 g = 10;
 console.log(g);
+// 
+// 
 var g; // js hoisted later declaration at the top of script and initialize it at the moment
 
-// h = 11;
-// let h; // js hoisted later declaration at the top of script but don't initalize.
-// console.log(h);
+h = 11;
+let h; // js hoisted later declaration at the top of script but don't initalize.
+console.log(h);
 
 // let h;
 // h = 20;
