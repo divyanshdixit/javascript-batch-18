@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <button type="button" onclick="clickfunction(event)"> click </button>
+
+    <button type="button" id="btn"> click 2 </button>
+    <button type="button" id="btn2"> click 2 </button>
+
+    <input type="text" id="uname" placeholder=""/>
+
+    <!-- 
+        window (parent object)
+        document (chld object)
+        html (child obj)
+        head     body
+    meta title  button1 button2
+                text node
+
+        document.getElementById('btn') => return single element
+     -->
+
+     <script>
+        document.getElementById('uname').onchange = function(event){
+            console.log(this,event.target.value)
+            this.placeholder = 'enter your username';
+            this.classList.add('first-class');
+        }
+       
+        console.log(document.getElementById('btn'))
+        
+        // const clickfunction2 = () => {
+        //     console.log('clicked')
+        // }
+
+        document.getElementById('btn').onclick = clickfunction2
+        document.getElementById('btn2').onclick = clickfunction2
+
+
+        function clickfunction2(event){
+            console.log('clicked', event)
+        }
+     </script>
+</body>
+</html>
