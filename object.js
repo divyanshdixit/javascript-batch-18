@@ -56,4 +56,20 @@ if(person.hasOwnProperty('name')){
 // get the methods:
 console.log(person.profile())
 
-// 
+// change the value of existing methods
+person.profile = function(){
+    console.log('new value console')
+}
+console.log(person.profile())
+
+// add a new method
+person.newMethod = function(){
+    console.log('new method added')
+}
+console.log(person)
+
+// delete a method
+
+delete person.newMethod;
+console.log(person)
+
