@@ -15,6 +15,11 @@
     <button type="button" id="btn2"> click 2 </button>
 
     <input type="text" id="uname" placeholder=""/>
+    
+    <!-- example for forEeach function -->
+    <div id="printValue">
+       
+    </div>
 
     <!-- 
         window (parent object)
@@ -28,6 +33,18 @@
      -->
 
      <script>
+
+        var a = '';
+        result  = a + 20; // 2030
+        result = result + 30; // 30
+
+        var print = document.getElementById('printValue');
+        var arr = ['para1', 'para2', 'para3'];
+
+        arr.forEach( function(item, index, arr){
+            print.innerHTML = print.innerHTML +  '<p>' + item + '</p>'
+        } );
+
         document.getElementById('uname').onchange = function(event){
             console.log(this,event.target.value)
             this.placeholder = 'enter your username';
