@@ -205,3 +205,5 @@ String.prototype.myCustomFunction = function(param){
 }
 
 console.log(str2.myCustomFunction(str2), first.myCustomFunction(first));
+
+console.log('divyansh'.split('').reverse().join(''))
