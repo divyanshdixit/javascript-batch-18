@@ -52,7 +52,9 @@ var b = 20;
 
 // Reverse a string: without using inbuilt function
 
-// Name: Divy ansh // 8
+// Name: Divy ansh // 8/2 , 
 // o/p : hsnayviD
+
+
 
 // str.split('').reverse().join('')
