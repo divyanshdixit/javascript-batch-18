@@ -56,5 +56,20 @@ var b = 20;
 // o/p : hsnayviD
 
 
+// reverse a number:- 
+
+// % => modules (reminder show)
+
+// fibonacci series: 0 1 1 2 3 5 8 13 21
+// no of digits 10
+/*
+
+*
+* *
+* * *
+* * * *
+* * * * *
+
+*/
 
 // str.split('').reverse().join('')
