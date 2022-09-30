@@ -157,16 +157,19 @@ console.log(arrobj);
 
 // merging (concat) two or more array:
 
-// concat()=> create new array by merging tow or more arrays.
+// concat() => create new array by merging tow or more arrays.
 // it also take any datatype as an argument.
 // will not change original array.
 
 const arr2 = [1,2,3];
 const arr3 = [4,5,6];
-const arr4 = [4,5,6];
+const arr4 = [7,8,9];
 console.log(arr2 + 7)
 // 
-console.log(arr2.concat(arr3, arr4, 7, {}, function (params) {}, 9), arr2);
+console.log( arr2.concat(arr3, arr4, 7, {}, function (params) {}, 9), arr2);
+
+// spread operator:
+// console.log(arr2.push(...arr3))
 
 
 // slice(start, end):
@@ -224,13 +227,13 @@ console.log(capitalletter('my name is divyansh'));
 
 // syntax: copyWithin(target, start, end)
 // target=> index position to copy the element to.
-// ending index not included.
+// ending index not included. (end - 1)
 
-var arr5 = [1,2,3,4];
+var arr5 = [1,2,3,4]; // 1,2 // 1, 1, 2, 4
 arr5.copyWithin(1,0,2); // 123
-console.log(arr5);
+console.log(arr5)
 
-var g = [1,2,3];
+var g = [1,2,3]; // 3, 123, [1,2,1]
 g.copyWithin(2,0,3); // 123
 console.log(g);
 //  1,2,1,2, 5,6
@@ -311,7 +314,7 @@ console.log(res);
 // find(): retrun the value of first element in array that passes a test.
 
 let res1 = arr5.find(val => {
-    return val == 4;
+    return val < 4;
 })
 
 console.log(res1, arr5);
@@ -319,7 +322,7 @@ console.log(res1, arr5);
 // findIndex(): retrun the index of first element in array that passes a test.
 
 let res2 = arr5.findIndex(val => {
-    return val == 4;
+    return val < 4;
 })
 
 console.log(res2, arr5);

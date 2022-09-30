@@ -56,7 +56,7 @@ var r;
 
 // differnce in var let const
 
-var c = 10 // 1000
+let c = 10 // 1000
 c = 20;
 console.log(c)
 
@@ -116,8 +116,9 @@ sum();
 
 var t = 10;
 
-g = 10;
-console.log(g);
+p = 10;
+console.log(p);
+let p;
 // 
 // 
 var g; // js hoisted later declaration at the top of script and initialize it at the moment
@@ -143,6 +144,10 @@ console.log(u); // new
 // let v = 'value';
 // let v = "again value";
 
+{
+    let g =1;
+    // let g = 2;
+}
 
 
 var obj = {

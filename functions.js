@@ -39,3 +39,30 @@ var adds = (x,y) => {
 }
 console.log(adds(1,2))
 
+// callback:
+
+// a function called as a argument inside another function
+// all callback are anonymous function always
+
+
+// api request - response - use callback
+function call(cb){ // parameter
+    console.log('call function');
+    cb();
+}
+
+call( function(){} ) // argument
+
+add(1,2) => // 2 sec
+
+mul(4,)
+
+function add(x,y, cb){
+    let res = x + y; // 5 sec
+    cb(res);
+    return res;
+}
+
+add(1,2, function(z){ return z*4;});
+
+// 

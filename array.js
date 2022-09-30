@@ -44,3 +44,23 @@ console.log(typeof arr[0], typeof arr);
 delete arr[1];
 console.log(arr);
 console.log(arr[1])
+
+// splice ex: element delete , new add element
+
+var num = [10,9,7,6,4,3,2,1];
+
+// adding new element
+num.splice(2,0,8)
+
+
+num.splice(5,0,5)
+
+// deleting:
+var returnVal = num.splice(0,1) // return [10]
+console.log(returnVal)
+num.splice(3,1)
+num.splice(5,1)
+
+// add:
+// num.splice(0,0,10,9,8)
+console.log(num);
