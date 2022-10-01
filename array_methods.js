@@ -314,7 +314,7 @@ console.log(res);
 // find(): retrun the value of first element in array that passes a test.
 
 let res1 = arr5.find(val => {
-    return val < 4;
+    return val == 'last';
 })
 
 console.log(res1, arr5);
@@ -328,10 +328,10 @@ let res2 = arr5.findIndex(val => {
 console.log(res2, arr5);
 
 
-// includes():  check whether an array element contains a specific element or not, 
+// includes():-  check whether an array contains a specific element or not, 
 // return true if element exist else false.
 // case senstive.
-// includes(element, start) => earching start from given index., if omiited searching start from 0 index
+// includes(element, start=optional) => earching start from given index., if omiited searching start from 0 index
 // we can use regex as well.
 
 {
@@ -342,16 +342,29 @@ console.log(res2, arr5);
 
 // map() => retrun a new array with result of calling a function for each array element
 
-arr.map( function(val, index, array){
-    return 
-} )
+function salary(){
+    console.log('1lkah')
+}
+
+// arrow function:
+
+salary = () => {
+
+}
+// arrayName.map( function(val=required, index=optional, array=optional){
+    // console.log(val);
+    // return <div> val </div>
+        
+    
+// } )
 {
 
-let res = [1,2,3].map((val, index, array)=> {
-    return val * 2; // 1*2 = 2, 2*2 = 4
+let res = [1,2,3].map((val, index)=> { // [2,4,6]
+    return val * 2 + index; // 1*2 = 2, 2*2 = 4
 });
 
-// arr.forEach(val => {
+
+// arr.forEach(val => { // no return value
 //     console.log(val *2);
 // })
 
@@ -360,7 +373,8 @@ console.log(res, arr);
 
 
 // reverse(): given array will be reversed, chnage the original array.
-
+var arrt = [3,2,1]
+console.log(arrt.reverse(), arrt)
 
 // reduce(): reduces the array to a single value.
 
@@ -370,35 +384,47 @@ console.log(res, arr);
 // doesn't change the original array.
 
 //syntax: 
- 
+
 // arr.reduce(function(total, currentVal, index, arr){
-//     // total = required => inittailvalue or previously returned value of the function
+//     // total = required => inittailvalue or previously returned value of the function which is stored in accumulator
 // }, initialValue);
 
+// initialValue = 0 
 // return the accumulated value of the function
 
 {
+    console.log('**',arr5)
     let res = arr5.reduce((total,val)=> {
         console.log(total, val);
-        return total + val; 
+        return total + val;  // 4 => accumulator
     });
     console.log(res);
 }
 
 // sort(compare function ): 
-// return sorted array on behalf of unicode(ascii) of items.
+arr.sort()
+// return sorted array on behalf of unicode(ascii) of items. - alphabets
 // default sorting in ascending order.
 // case senstive sorting.
 // change the original array.
 
-// ascending order sorting :
+// ascending order sorting : +ve result => highest value shift to the left
 // descending order sorting :
 
-var unsortArr = [19,10, 8, 78, 89, 2, 34,3,0]; // a= 19, b = 10, // 10, 19
+// console.log([10,9,8,7,6,5,4,3,2,1,0].sort())  //give wrong result
+
+var unsortArr = [10,19, 8, 78, 89, 2, 34,3,0]; // a= 19, b = 10, // 10, 19
+
+unsortArr.sort( function(a,b){
+    return a-b; // 10,19 -ve 10,19
+})
+[10,19,8, 78, 89, 2, 34,3,0]
+[10,8,19, 78, 89, 2, 34,3,0]
+// [8,10, 19, 78, 89, 2, 34,3,0]
 // [0,2,3,8,9,10,34,78,89]
 // console.log(unsortArr.sort());
 
-var stringArr = ['Dog', 'Cat', 'boy', 'aPple', 'aora'];
+var stringArr = ['dog', 'bat', 'Boy', 'aople', 'Aora'];
 // ascending order alphabets:
 console.log(stringArr.sort(), stringArr);
 
@@ -413,9 +439,14 @@ console.log(stringArr.sort(), stringArr);
 0 => number will not interchange
 */
 
+/*
+a-b => ascending
+b-a => descending
+*/
+
 [0,1][1,0]
 // a - b 1-0[0,1]
-[19,10, 8, 78, 89, 2, 34,3,0];
+[10,10, 8, 78, 89, 2, 34,3,0];
 a = 19,
 b=10
 // a-b = 19-10= 9 
@@ -435,7 +466,7 @@ b = 8
  a- b // ascending 
 
  b- a // descending 
-unsortArr.sort(function(a,b){
+unsortArr.sort(function(a,b){ // compare function
    
     return b-a; // descending sorting
     // a-b // ascending 
@@ -444,14 +475,24 @@ console.log(unsortArr);
 
 // sorting in descending order for string.
 // el, do, cat, bee
-var animals = ['cat', 'dog', 'elephant', 'bee'];
-[1,2]
-1> 2
-+1
+var animals = ['cat', 'cog', 'blephant', 'bee'];
+console.log(animals.sort()) // ascending
+// [e,d,c, bee]
 // [ele, dog, cat, bee];
+/*
+alphabets: sort()
+descending:
+a > b => -ve
+a < b => +ve
+
+number:
+ a -b => ascending
+ b - a => descending
+
+*/
 console.log(
     animals.sort( (a,b) => {
-        if( a > b){ 
+        if( a > b){ // b-a =-ve
             return -1;
         }
         if( a < b){
@@ -468,7 +509,7 @@ console.log(
 var mixed = ['Cat', 'dog', 'Elephant', 'bee'];
 console.log(mixed.sort((a,b) => {
     let x = a.toLowerCase(); // Cat => cat
-    let y = b.toLowerCase();
+    let y = b.toLowerCase(); // dog
 
     if(x > y){
         return -1;
@@ -477,8 +518,7 @@ console.log(mixed.sort((a,b) => {
         return 1;
     }
     return 0;
-}));
-
+}), mixed);
 // sorting of array of objects by specified property.
 
 var employee = [
