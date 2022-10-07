@@ -480,13 +480,18 @@ console.log(animals.sort()) // ascending
 // [e,d,c, bee]
 // [ele, dog, cat, bee];
 /*
-alphabets: sort()
+
+alphabets: 
+
+ascending: 
+a > b => return +ve
+a < b => return -ve
 descending:
 a > b => -ve
 a < b => +ve
 
 number:
- a -b => ascending
+ a - b => ascending
  b - a => descending
 
 */
@@ -506,7 +511,7 @@ console.log(
 
 // sorting with mixed chars(captial letters and small letters);
 
-var mixed = ['Cat', 'dog', 'Elephant', 'bee'];
+var mixed = ['Cat', 'dog', 'Elephant', 'bee']; 
 console.log(mixed.sort((a,b) => {
     let x = a.toLowerCase(); // Cat => cat
     let y = b.toLowerCase(); // dog
@@ -523,35 +528,38 @@ console.log(mixed.sort((a,b) => {
 
 var employee = [
     {
-        name:'abhishek',
-        id:101,
-        salary:2000
-    }, 
-    {
-        name:'divyansh',
+        name:'Divyansh',
+        address:{
+            area:'sectorA'
+        },
         id:100,
         salary:1000
     }, 
     {
         name:'lovish',
         id:99,
+        salary:2000
+    }, 
+    {
+        name:'abhishek',
+        id:101,
         salary:5000
     }
 ]
 
 // 1- sorting by numeric property: Ascending.
 
-// console.log(employee.sort((a,b) => {
-//     return a.salary - b.salary; // ascending
-// }))
+console.log(employee.sort((a,b) => {
+    return a.salary - b.salary; // ascending a-b
+}))
 
 
 
-// 2- sorting by numeric property: Ascending.
+// 2- sorting by numeric property: Descending.
 
-// console.log(employee.sort((a,b) => {
-//     return b.salary - a.salary; // ascending
-// }))
+console.log(employee.sort((a,b) => {
+    return b.id - a.id; // descending b-a
+}))
 
 
 // 3- sorting by string prop: ascending
@@ -569,7 +577,7 @@ console.log(employee.sort((a,b)=> {
         return -1;
     }
     return 0;
-}))
+})); 
 
 
 // var nameArr = employee.map((val) => {
