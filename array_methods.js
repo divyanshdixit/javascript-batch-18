@@ -166,7 +166,7 @@ const arr3 = [4,5,6];
 const arr4 = [7,8,9];
 console.log(arr2 + 7)
 // 
-console.log( arr2.concat(arr3, arr4, 7, {}, function (params) {}, 9), arr2);
+console.log( arr2.concat(arr3, arr4, 7, {}, function (params) {}, 9,'sdas'), arr2);
 
 // spread operator:
 // console.log(arr2.push(...arr3))
@@ -229,8 +229,8 @@ console.log(capitalletter('my name is divyansh'));
 // target=> index position to copy the element to.
 // ending index not included. (end - 1)
 
-var arr5 = [1,2,3,4]; // 1,2 // 1, 1, 2, 4
-arr5.copyWithin(1,0,2); // 123
+var arr5 = [1,2,3,4]; // 1,2,3 // 1,1,2,3
+arr5.copyWithin(1,0,4); // 123
 console.log(arr5)
 
 var g = [1,2,3]; // 3, 123, [1,2,1]
@@ -311,7 +311,7 @@ let res = age.filter(val => {
 console.log(res);
 
 
-// find(): retrun the value of first element in array that passes a test.
+// find(): retrun the value of first element in array that passes a condition
 
 let res1 = arr5.find(val => {
     return val == 'last';
@@ -376,7 +376,7 @@ console.log(res, arr);
 var arrt = [3,2,1]
 console.log(arrt.reverse(), arrt)
 
-// reduce(): reduces the array to a single value.
+// reduce(callback function, accumualtor): reduces the array to a single value.
 
 // excute a  provided function for each value of the array(left to right).
 // return value of the function is stored in an accumulator(variable).
@@ -387,7 +387,7 @@ console.log(arrt.reverse(), arrt)
 
 // arr.reduce(function(total, currentVal, index, arr){
 //     // total = required => inittailvalue or previously returned value of the function which is stored in accumulator
-// }, initialValue);
+// });
 
 // initialValue = 0 
 // return the accumulated value of the function
@@ -414,9 +414,9 @@ arr.sort()
 // console.log([10,9,8,7,6,5,4,3,2,1,0].sort())  //give wrong result
 
 var unsortArr = [10,19, 8, 78, 89, 2, 34,3,0]; // a= 19, b = 10, // 10, 19
-
+[10,8,19,78,2,89,34]
 unsortArr.sort( function(a,b){
-    return a-b; // 10,19 -ve 10,19
+    return a-b; // 19,8 -ve 10,19
 })
 [10,19,8, 78, 89, 2, 34,3,0]
 [10,8,19, 78, 89, 2, 34,3,0]
@@ -424,7 +424,7 @@ unsortArr.sort( function(a,b){
 // [0,2,3,8,9,10,34,78,89]
 // console.log(unsortArr.sort());
 
-var stringArr = ['dog', 'bat', 'Boy', 'aople', 'Aora'];
+var stringArr = ['dog', 'bat', 'Boy', 'apple', 'Aora'];
 // ascending order alphabets:
 console.log(stringArr.sort(), stringArr);
 
@@ -498,10 +498,10 @@ number:
 console.log(
     animals.sort( (a,b) => {
         if( a > b){ // b-a =-ve
-            return -1;
+            return 1;
         }
         if( a < b){
-            return 1; // ele, cat
+            return -1; // ele, cat
         }
         return 0;
     })
@@ -517,10 +517,10 @@ console.log(mixed.sort((a,b) => {
     let y = b.toLowerCase(); // dog
 
     if(x > y){
-        return -1;
+        return 1;
     }
     if(x < y ){
-        return 1;
+        return -1;
     }
     return 0;
 }), mixed);
@@ -579,6 +579,8 @@ console.log(employee.sort((a,b)=> {
     return 0;
 })); 
 
+// from(): return an array from the object(or any iterable object) which has length property.
+console.log(Array.from({name:'div',age:26}))
 
 // var nameArr = employee.map((val) => {
 //     return val.name
