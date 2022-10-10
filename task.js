@@ -111,3 +111,40 @@ for(let i=5;i<=1;i--){ // i = 1,2
     }
     res = res + '\n';
 }
+
+// array questions:
+
+// without using inbuild functions:
+
+// **A - find max and min value from array: 
+// **B - sort this array in ascending array without using inbuilt function
+var array = [4,40,1,0,-1,-100,3,40.01,-100.01,90,-100.1, 40.45, 40.96]
+
+
+// **A- find the "email" inside the array
+// **B- print this array elements in html document inside a div with h1 tag. 
+var array1 = ['fname', 'lname', 'email', 'emailid', 'address'];
+
+// **A - find the duplicate number in the given array  and return in a array. 
+// **B - remove duplicate number in the given array:
+var arr2 = [-1,0,1,2,3,-1,3.4,4,5,3.40,1,2] // here 3.4 is equal to 3.40
+
+// **reverse this array:
+var arr3 = [10, '10', 20, '200', 'id'];
+
+// ** find if given number and string both are palindrome or not: (check on google what is palindrome, but don't copy the code 😄)
+
+// test cases:
+var num1=121;
+var num1=123;
+var num1=373;
+
+// test cases:
+var str1 = 'racercar';
+var str2 = 'racer car'; // it must ignore the space while checking the string is palindrome or not.
+var str3 = 'eye';
+var str4 = 'DD';
+
+
+// ** make a click counter: 
+// (two button one is for "increment" other one is for "decrement", in html using onclick event write a logic for increment and decrement count on button click respectively)
