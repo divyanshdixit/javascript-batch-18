@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1> ERROR</h1>
+    <!-- <script src="./error.js"> </script> -->
+
+
+    <input id="demo" type="text"/>
+    <span id="err-message"> </span>
+    <button type="button" onclick="clickfun()"> Click </button>
+
+    <!-- truthy , falsy -->
+    <script>
+        function clickfun(){
+            let x = document.getElementById('demo');
+            let errMess = document.getElementById('err-message');
+            console.log(x, x.value)
+
+            try{
+                if(!x.value) throw 'empty value';
+                if(isNaN(x.value)) throw 'Not a number';
+                x = Number(x.value);
+                if(x < 5) throw "too low!";
+                if(x > 10) throw "too high!";
+            }catch(err){
+                console.log(err)
+                errMess.innerHTML = `error is ${err}` // "name is " + name + 
+            }
+            finally{
+                x.value = "das"
+            }
+
+        }
+        // const clickfun = () => {
+
+        // }
+    </script>
+</body>
+</html>

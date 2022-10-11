@@ -1,5 +1,7 @@
-// reference error:
+// reference error:-
+
 var x = 10;
+// console.log(first())
 // console.log(y)
 // syntax error:
 // console.log(y;
@@ -18,8 +20,18 @@ var f = 10;
 // finally: excute the code after try and catch block regardless of result
 
 try {
-    const result = fetch('https://jsonplaceholder.typicode.com/poss').then((res) => console.log(res));
-    console.log(result);
+    const result = fetch('https://jsonplaceholder.typicode.com/pos')
+    .then(
+        (res) => console.log(res)
+        )
+    .catch(err => console.log(err))
+    if(res.status == 404){
+        throw 'awdasd' // exception(errors)
+    }
+    if(res.status == 500){
+        throw 'server error'
+    }
+    // console.log(result);
 } catch (e) {
     console.log(e, e.message)
 }
@@ -57,4 +69,5 @@ ReferenceError: using a vairable with giving any reference
 SyntaxError:
 rangeError: out of range in number
 uriError : error in decoding uri 
+evalError: eval()
 */
