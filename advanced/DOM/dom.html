@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <p id="para" class="first second third"> paragraph  </p>
+
+    <p id="result"> </p>
+
+    <span> outer span </span>
+
+    <div id="somediv">
+    <p id="intro">
+        <span class="intro"> span with intro class </span> 
+        <span> inner span </span>
+        <span> inner span </span>
+        <span> inner span </span>
+        <span> inner span </span>
+        <span class="intro"> inner span </span>
+    </p>
+    <p></p>
+    </div>
+    
+    <h1 class="intro"> heading intro</h1> 
+    
+    <input type="text" class="sds" name="fname" id="fname" placeholder="fname"/>
+    <input type="text" name="lname" placeholder="lname"/>
+
+    <input type="text" name="lname" placeholder="Full name "/>
+
+<!--
+    <p id="res"> </p> -->
+
+    <form id="form1" name="form1" color:red>
+        fname: <input type="text" value="divyansh" name="fname"/>
+        fname: <input type="text" value="dixit" name="lname"/>
+
+        <input type="button" value="submit"/>
+    </form> 
+    <form id="form2" name="form1" >
+        fname: <input type="text" value="divyansh" name="fname"/>
+        fname: <input type="text" value="dixit" name="lname"/>
+
+        <input type="button" value="submit"/>
+    </form> 
+
+    <a href="#"> First anchor </a>
+    <a href="#" name="Second"> Second anchor </a>
+
+    <img src=""/>
+    <img src=""/>
+
+
+    <script src="../map_object.js"> </script>
+    <script>
+
+        // getting the dom elements
+
+        var obj = {
+            name:'divyansh'
+        }
+
+        // element by id :
+        const elem = document.getElementById('para');
+        // document.getElementById('result').innerHTML = elem;
+        console.log(elem);
+
+        // element by class name: return HTMLCollection[]
+        const classElem = document.getElementsByClassName('intro');
+        // document.getElementById('result').innerHTML = classElem;
+        console.log(classElem);
+
+        // element by tag name: return HTMLCollection[]
+        const tagElem = document.getElementsByTagName('span');
+        console.log(tagElem);
+
+        const introSpan = document.getElementById('intro');
+        console.log(introSpan.getElementsByClassName('intro'))
+        console.log(introSpan.getElementsByTagName('span'))
+        
+        // const tagElem = document.getElementsByTagName('span');
+        document.getElementById('result').innerHTML = tagElem;
+        console.log(tagElem, typeof tagElem);
+        for(let i=0; i<tagElem.length; i++){
+            console.log(tagElem[i])
+        }
+        // can't use forEach in HTMLCollection:
+
+        // tagElem.forEach(elem => {
+        //     console.log(elem)
+        // });
+
+        // return NodeList[]:
+        const form1 = document.getElementsByName('fname');
+        console.log(form1)
+        form1.forEach((elem) => {
+            console.log(elem)
+        })
+
+        
+
+        // html collection is only looks like array not work as an array :
+
+        // const lnames = document.getElementsByName('fname');
+        // const lnames = document.getElementsByName('lname');
+
+        // document.getElementById('result').innerHTML = names + lnames;
+
+        // console.log(names, lnames, typeof names, names instanceof Array);
+
+        // lnames.forEach(element => {
+        //     console.log(element);
+        // });
+
+        // 
+        // Find by css selector(query selector):
+
+        const q= document.querySelectorAll('.intro'); // Node list
+        const l= document.querySelector('.intro'); // single html element
+        
+        // using multiple class, id, or tag name
+        const q1= document.querySelectorAll('#somediv p#intro .intro');
+        console.log(q1)
+        document.getElementById('result').innerHTML = q + l;
+        console.log(q, l);
+        
+        // find by html object collection:
+        const formElm = document.forms; // find form element by its id
+        console.log(formElm,formElm.length);
+        document.getElementById('result').innerHTML = formElm;
+        console.log(formElm.elements); // [object html form control collections]
+
+        // console.log(document.scripts.innerHTML, .length);
+        // Html object collection:
+        /*
+            document.forms => length of forms
+            document.title => return the title of the document
+            document.body => html body element, to get the innerHTML use document.body.innerHTML
+            document.anchors => return the no of anchors element which have "name" attribute 
+            document.links => return object of anchro elemnt which have links , length property to get the length
+            document.images => retunr the obect of image element , to get the legth use length property
+            document.scripts => return the object of scripts , to get the innerHTML use innerHTML property and for length
+        */
+        // var arr = [1,2,3,4,5];
+        // arr.forEach((val, index) => {
+        //     if(index > 3){
+        //         break;
+        //     }else{
+        //         continue
+        //     }
+        // });
+
+        // changing dom element content and attributes:
+
+        // innerHTML
+
+        // data-attribute- html
+        // document.getElementById('image').attributeName= 'new value'
+        
+        var paraid = document.getElementById('para');
+        // paraid.addEventListener('click', (e) => {
+        //     paraid.id = "newid";
+        //     // paraid.classList. = "newclass";
+        //     console.log(paraid)
+        // }) // event bubbling, event capturing , event propagation
+        
+        var finput = document.getElementById('fname');
+        finput.addEventListener('click', (event) => {
+            console.log(event)
+            finput.type="email";
+            console.log(finput);
+        })
+
+        // add and remove class 
+        console.log(paraid.classList.remove('third'));
+        console.log(paraid.classList.add('third'));
+        
+
+        // change html style:-
+
+        document.getElementById('para').style.fontSize = '50px';
+
+
+    </script>
+</body>
+</html>

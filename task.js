@@ -148,3 +148,26 @@ var str4 = 'DD';
 
 // ** make a click counter: 
 // (two button one is for "increment" other one is for "decrement", in html using onclick event write a logic for increment and decrement count on button click respectively)
+
+
+// 
+var arr = [1,2,3,4,5,6,7,8,9];
+var arr1 = [1,2,3,4,5,6];
+<div>
+
+<div>
+1,2,3
+</div>
+
+<div>
+4,5,6
+</div>
+
+<div>
+7,8,9
+</div>
+
+</div>
+
+// css selectors
+// css combinators
