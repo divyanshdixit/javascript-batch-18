@@ -7,7 +7,7 @@ core dom -> any type of document
 using it, js can chnage & access all the elements of html Dom
 when web page is loaded, browser create a dom of the page (as tree of objects)
                         WINDOW (main parent)
-                            DOCUMENT
+                            DOCUMENT (object)
                             HTML(ROOT) 
                 HEAD                        BODY
                 TITLE                    DIV                <a>
