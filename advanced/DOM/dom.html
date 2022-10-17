@@ -7,10 +7,10 @@
     <title>Document</title>
 </head>
 <body>` 
-
+<p id="top" class="dsds"> <b> <i> top </i> para </b> </p>
     <p id="para" class="first second third" style="color:red"> <i>paragraph </i> </p>
 
-    <p id="result"> </p>
+    <p id="result"> <b> <i> italtic n</i> para </b>  </p>
 
     <span> outer span </span>
 
@@ -61,14 +61,35 @@
     <script>
 
         // getting the dom elements
+        // get 
+        console.log(document.getElementById('top').innerText);
+        // set:
+        var f = document.getElementById('top')
+        document.getElementById('top').innerHTML += "<span> top header </span>"
+        // element by id :
+        // get arrtibute :
+        console.log(document.getElementById('top').getAttribute('id'));
+        console.log(document.getElementById('top').setAttribute('width','100px'));
 
-        var document = {
-            getElementById:function(){
+        // this can be used for both pre-defined and later defined
+        console.log(document.getElementById('top').attributes[2].value);
 
+        // to set pre-defined attributes , elem.attributeName = 'new value'
+        document.getElementById('top').id = '200';
+
+       var fg = { color: 'red', fontSize: '40px'}
+        if(!f.hasAttribute('style')){
+            for(let k in fg){
+                document.getElementById('200').style[k] = fg[k]
             }
         }
-
-        // element by id :
+        // for append in previous style:
+        f.style.cssText += 'color:green;background-color:red'
+        // append extra classes in class attribute:
+        document.getElementById('200').classList.add('first');
+        document.getElementById('200').classList.add('second');
+        document.getElementById('200').classList.remove('first');
+        
         const elem = document.getElementById('para'); 
         // document.getElementById('result').innerHTML = elem;
         console.log(elem);
