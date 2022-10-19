@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- .. -->
+    <div id="root">
+        <span> childnode </span>// child
+        <!-- <h1>
+            heading
+        </h1>    
+        <p>
+            para
+        </p> -->
+    </div>
+
+    <script>
+        const root = document.getElementById('root');
+        var oldTag = root.getElementsByTagName('span')[0];
+        var newTag = document.createElement('h2');
+        var newTag = document.createTextNode('h2'); // <h2> h2
+        // newTag.innerHTML = 'new heading'
+        var div1 = document.createElement('div');
+        var asdasd = document.createElement('h1');
+        var h1 = document.createElement('h1');
+        var p1 = document.createElement('p');
+
+        <> </>
+        h1.innerHTML = '<i>heading</i>';
+        p1.innerHTML = '<i>para</i>';
+        div1.appendChild(h1)
+        div1.appendChild(p1)
+        root.appendChild(div1);
+        
+
+        // replaceChild(htmlnode, htmlNode): replace old html node with new html/text node only
+        root.replaceChild(newTag, oldTag)
+    </script>
+</body>
+</html>

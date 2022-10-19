@@ -20,7 +20,7 @@ change html element
         html attributes
         css 
     add new html element 
-    react to html event 
+    react to html event
     add new html event 
 
 html dom methods are 'actions' we can perform on html elements.
@@ -60,9 +60,10 @@ if elements is found, method will return all founded elements in an HTML COLLECT
     3- attribute: setAttribute(), getAttribute('class'), hasAttribute('id')
     4- style attribute: 1- elem.style.color = 'red' 2- elem.style.cssText = 'css style'
 
-// add and create HTML element:-
+// add and create HTML element :-
 
 document.createElement()
+// createTextNode()
 appendChild()
 removeChild()
 replaceChild(new, old)
