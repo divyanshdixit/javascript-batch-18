@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #div1{
+            background-color: green;
+            border:10px solid purple
+        }
+    </style>
+</head>
+<body>
+    <div id="div"> </div>
+
+    <!-- bubbling phase child => parent
+    the event propagation mode determines in which order the elements receive the events
+    top to bottom => capture 
+    bottom to top => bubble
+
+    default behaviour => bubble
+    event.stopPropogation();
+    -->
+    <div id="div1" onclick="divClick()"> // parent => click
+        <h1 id="h1" onclick="h1Click()"> Heading </h1> // child => click
+    </div>
+
+
+    <button type="button" onclick="clickFunction()"> Click </button>
+    <script>
+        function divClick(){
+            console.log('div click')
+        }
+        function h1Click(){
+
+            console.log('h1 click')
+            event.stopPropagation();
+        }
+        var a = 10;
+        function clickFunction(){
+            console.log('first click')
+        }
+
+        var b = document.getElementsByTagName('button')[0];
+
+        function clickFunction2 (a) {
+            console.log('second click', a)
+        }function clickFunction3 () {
+            console.log('3 click')
+        }function clickFunction4 () {
+            console.log('4 click')
+        }
+
+
+        b.addEventListener('click',() => clickFunction2(a));
+        
+        b.addEventListener('change', clickFunction3);
+        b.addEventListener('load', clickFunction4);
+
+        // window.addEventListener('resize',function(){
+        //     document.getElementById('div').innerHTML = 'resizing...';
+        // } )
+    </script>
+</body>
+</html>

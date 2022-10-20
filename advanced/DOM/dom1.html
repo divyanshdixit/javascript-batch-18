@@ -16,9 +16,38 @@
         <p>
             para
         </p> -->
+
+        <!-- form validation -->
+        <!-- server side , client side  -->
+        <form name="form1" id="form12" onsubmit="return formValidation(event)" method="get">
+            <input type="text" name="fname" onclick=""/>
+            <input type="submit" name="submit" value="submit"/>
+            <!-- <button type="button" -->
+        </form>
+
+        <button type="button"> click </button>
     </div>
 
+    '10' - 10
     <script>
+        // console.log(document.forms['form1'])
+        function formValidation(event){
+            console.log(event);
+            // event.preventDefault();
+            // document.forms['id/name']['name attribute of input'].value
+            var x = document.forms['form1']['fname'].value;
+            console.log(x, typeof x) // 
+            if(x == ''){
+                alert('empty value!');
+                return false;
+            }else if(isNaN(x)){
+                alert(`${x} is not a number`);
+                return false;
+            }
+            
+
+        }
+        /*
         const root = document.getElementById('root');
         var oldTag = root.getElementsByTagName('span')[0];
         var newTag = document.createElement('h2');
@@ -39,6 +68,7 @@
 
         // replaceChild(htmlnode, htmlNode): replace old html node with new html/text node only
         root.replaceChild(newTag, oldTag)
+        */
     </script>
 </body>
 </html>
