@@ -23,20 +23,61 @@
     default behaviour => bubble
     event.stopPropogation();
     -->
-    <div id="div1" onclick="divClick()"> // parent => click
-        <h1 id="h1" onclick="h1Click()"> Heading </h1> // child => click
+    <div onclick="parent()" style="border:20px solid red">
+    <div id="div1"> // parent => click
+        <h1 id="h1"> Heading </h1> // child => click
+    </div>
     </div>
 
 
-    <button type="button" onclick="clickFunction()"> Click </button>
+
+    <button type="button" onclick="clickFunction(1)"> Click </button>
+
+    <div class="card" style="width: 18rem; border:20px solid black">
+        <img class="card-img-top" src="../../img1.png"  width="100px" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">Card title</h5>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          <button class="btn btn-primary">Go somewhere</button>
+        </div>
+      </div>
+
     <script>
+        document.getElementsByClassName('btn')[0].addEventListener('click', buttonClick);
+        document.getElementsByClassName('card')[0].addEventListener('click', parentDivFunction, true)
+        document.getElementsByClassName('card-img-top')[0].addEventListener('click', imgFunction);
+        // document.getElementsByClassName('card-img-top')[0].addEventListener('chnage', ChnageFunction);
+
+        function buttonClick(){
+            console.log('button click');
+            event.stopPropagation();
+            
+        }
+        function parentDivFunction(){
+            console.log('parent div click');
+            
+        }
+        
+        function imgFunction(event){
+            console.log('img click');
+            // document.getElementsByClassName('card-img-top')[0].removeEventListener('click', imgFunction)
+        }
+
+        
+        function parent(){
+            console.log('parent')
+        }
+        // false => bubble => child to parent
+        // true => capture => parent to child
+
+        document.getElementById('h1').addEventListener('click', h1Click, true);
+        document.getElementById('div1').addEventListener('click', divClick, true);
+
         function divClick(){
             console.log('div click')
         }
         function h1Click(){
-
             console.log('h1 click')
-            event.stopPropagation();
         }
         var a = 10;
         function clickFunction(){

@@ -79,11 +79,13 @@ function myfunction(){
 document.getElementById('btn').onclick = clickFunction
 function clickFunction(){
 }
-//addEventListener("event", function(listener), useCapture(true,false))
+event propagating: event capturing , event bubble 
+//addEventListener("event", function(listener), false=default(capture))
 // attaches an event handler on html elemnt
 // this method attach event handler wihtout overwriding existing event handlers
 // when we want to use event Capturing
-// event listener can add to any DOM object not only html event (window object)
+// event listener can add to any DOM object not only html event (window object);
+
 EVENT NAME:
 onload, onunload
 body, 
