@@ -24,3 +24,13 @@ previousSibling
 document.getElementById("p2").innerHTML = document.getElementById("p1").innerHTML
 document.getElementById("p2").innerHTML = document.getElementById("p1").firstChild.nodeValue;
 document.getElementById("p2").innerHTML = document.getElementById("p1").childNodes[0].nodeValue;
+
+// 
+
+// firstChild: returns first child node of a node. (it can be an element node, text node or comment node)
+
+// returns a node object.
+
+// firstChild is same as childNodes[0]
+
+to get the first element node (html element) use firstElementChild

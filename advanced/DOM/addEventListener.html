@@ -38,10 +38,11 @@
         <div class="card-body">
           <h5 class="card-title">Card title</h5>
           <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-          <button class="btn btn-primary">Go somewhere</button>
         </div>
+        <button class="btn btn-primary">Go somewhere</button>
       </div>
-
+    
+      <input type="text"/>
     <script>
         document.getElementsByClassName('btn')[0].addEventListener('click', buttonClick);
         document.getElementsByClassName('card')[0].addEventListener('click', parentDivFunction, true)
@@ -85,24 +86,25 @@
         }
 
         var b = document.getElementsByTagName('button')[0];
+        var c = document.getElementsByTagName('input')[0];
 
         function clickFunction2 (a) {
             console.log('second click', a)
         }function clickFunction3 () {
-            console.log('3 click')
+            console.log(event.target.value)
         }function clickFunction4 () {
             console.log('4 click')
         }
 
-
         b.addEventListener('click',() => clickFunction2(a));
         
-        b.addEventListener('change', clickFunction3);
+        c.addEventListener('change', clickFunction3);
         b.addEventListener('load', clickFunction4);
 
-        // window.addEventListener('resize',function(){
-        //     document.getElementById('div').innerHTML = 'resizing...';
-        // } )
+        window.addEventListener('resize',function(){
+            console.log('first')
+            document.getElementById('div').innerHTML = 'resizing...';
+        })
     </script>
 </body>
 </html>

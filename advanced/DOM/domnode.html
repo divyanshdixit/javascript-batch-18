@@ -6,31 +6,74 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
-<body>
-  
-
+<body id="body">
+  <div id="main">
+<!--  -->
     <div id="d1">
         <div id="d2">
-            <p id="p1">  para 1</p>
-            <h1 id="p3">  para 2</h1>
+            <!--  -->
+            <p id="p1">para 1</p>
+            <h1 id="p3">para 2</h1>
         </div>
         <!--  -->
         <p id="p2">  para 2</p>
-        <!--  -->
+        <!--comment-->
     </div>
+</div>
+
     <script>
         /*
 parentNode
 childNodes[nodenumber] => nodelist
 children => html collection
-firstChild
+firstChild => return the first node (either text or html element or comment)
+firstElementChild -=> return the first html element
 lastChild
-nextSibling
+lastElementChild
+nextSibling => return the first sibiling node
+nextElementSibiling
 previousSibling
+previousElementSibling
+
+*******
+nodeName => get the name of html tag(capital letters)
+accessing nodeVlaue is same as accessiing the innerText of elemnt
+nodeType => 
+element node => 1
+attribute node => 2
+text node => 3
+comment node => 8
+document node => 9 
+
+if(nodeName === 'DIV' && nodeType === 1)
         */
 
-        console.log(document.getElementById('p1').parentNode.parentNode)
-        console.log(document.getElementById('p1').parentNode.children[0].nextSibling)
+        console.log(document.getElementById('p1').parentNode.parentNode.lastChild.nodeType)
+        console.log(document.getElementById('p1').parentNode.firstElementChild.nextElementSibling.previousElementSibling.innerHTML)
+    
+    
+        // creating html elements and nodes:
+
+        const div = document.createElement('div');
+        div.style.cssText = 'border:1px solid green'
+        const p = document.createElement('p');
+        p.setAttribute('id', 'para1')
+
+        // p.innerText = 'innertEXT';
+        const paraNode = document.createTextNode('innerText');
+
+        p.appendChild(paraNode);
+        div.appendChild(p);
+        document.getElementById('main').appendChild(div);
+
+        const elem = document.getElementById('main');
+        const child= document.getElementById('d1');
+
+        //  elem.insertBefore('node want to insert', 'node before u want to insert')
+        elem.insertBefore(div, child);
+
+    // remove existing html elemnt:
+    
     </script>
 </body>
 </html>
