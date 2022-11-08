@@ -7,8 +7,16 @@
     <title>Document</title>
 </head>
 <body id="body">
+    <a href="#" target="_blank">hh</a>
+    <div id="divp">
+        <p id="p"> para </p>
+        <p id="p"> para </p>
+        <p id="p5"> para 5 </p>
+    </div>
+
   <div id="main">
 <!--  -->
+
     <div id="d1">
         <div id="d2">
             <!--  -->
@@ -24,8 +32,8 @@
     <script>
         /*
 parentNode
-childNodes[nodenumber] => nodelist
-children => html collection
+childNodes[nodenumber] => nodelist(collection of document node ,  commentnode, text node, html element) => use forEach
+children => html collection (only html element )=> can't use forEach , can use simple for loop . 
 firstChild => return the first node (either text or html element or comment)
 firstElementChild -=> return the first html element
 lastChild
@@ -72,8 +80,27 @@ if(nodeName === 'DIV' && nodeType === 1)
         //  elem.insertBefore('node want to insert', 'node before u want to insert')
         elem.insertBefore(div, child);
 
-    // remove existing html elemnt:
-    
+        // remove existing html element:-
+        // remove() - not for old browsers, removeChild()- 
+        const pchild = document.getElementById('p');
+        
+        // document.getElementById('p').remove();
+
+        console.log(pchild.parentNode)
+        // pchild.parentNode.removeChild(pchild)
+
+        document.getElementById('divp').removeChild(pchild)
+
+        // replaceChild(new , old):-
+
+        const h1 = document.createElement('h1');
+        const h1TextNode = document.createTextNode('heading h1');
+        h1.appendChild(h1TextNode);
+
+        const divp = document.getElementById('divp');
+        console.log(divp.lastElementChild)
+
+        divp.replaceChild(h1, divp.lastElementChild);
     </script>
 </body>
 </html>
