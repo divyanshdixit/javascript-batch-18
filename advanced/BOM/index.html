@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        var u = "http://127.0.0.1/?userid=100&username=divyansh";
+        const url = new URL(u); // make new url object
+        console.log(url.search)
+        const urlParams = new URLSearchParams(url.search); // iterable object
+        // for(let val of urlParams){
+        //     console.log(val)
+        // }
+        // keys(), values(), entries() => iterator object
+        for(let [key,value] of urlParams){
+            console.log(key, value)
+        }
+        console.log(urlParams.keys())
+        console.log(urlParams.values())
+        console.log(urlParams.has('q')) // check if query param is present ot not.
+        console.log(urlParams)
+    </script>
+</body>
+</html>
