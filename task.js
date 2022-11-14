@@ -29,7 +29,7 @@
 // switch case :
 var ages = 20;
 switch(ages){ // expressions 18
-    case 18:
+case 18:
         console.log('u may eneter this website');
         break;
     case 19:

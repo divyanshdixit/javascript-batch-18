@@ -66,7 +66,7 @@ const o2 = {
     lname:'adassdas'
 }
 
-console.log(o1.writeName.apply(o2))
+console.log(o1.writeName.call(o2))
 
 
 var h = () => {

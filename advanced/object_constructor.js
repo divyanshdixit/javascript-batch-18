@@ -2,8 +2,11 @@
 
 // Object Function constructor:
 
+// it looks like we create a new function but functions are objects sp we actiually create 
+// a new object
 
 function Person(f, l, a, c, fn){
+    console.log(this);
     this.fname = f;
     this.lname = l;
     this.age   = a;
