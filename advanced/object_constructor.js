@@ -3,11 +3,12 @@
 // Object Function constructor:
 
 
-function Person(f, l, a, c){
+function Person(f, l, a, c, fn){
     this.fname = f;
     this.lname = l;
     this.age   = a;
     this.color = c;
+    this.mth =  fn;
     // this.size = s;
 }
 
@@ -65,8 +66,8 @@ Person.prototype.getName= function () {
 }
 const d = new Date();
 
-const obj1 = new Person('div','dixit', 25,'fair');
-console.log(Object.getPrototypeOf(obj1).constructor);
+const obj1 = new Person('div','dixit', 25,'fair', function(){console.log('first')});
+console.log(Object.getPrototypeOf(obj1).constructor, obj1.mth());
 Person.prototype.size = '10';
 console.log(obj1.size);
 const obj2 = new Person('div1','dixit1', 26,'fair1')
@@ -81,9 +82,7 @@ console.log(obj1.size, obj1.getName(), obj2.size)
 
 const f = {
     name:'adsasd',
-    getName:function(){
-
-    },
+    getName:function(){},
 } 
 
 const g = {
@@ -110,14 +109,20 @@ const h = {
 // they acces js function as a prop
 
 // getter (get keyword):
-
+// p.fullName()
+// p.fullName
+// p.setCity = "kkkk"
+// p.setcity('kkk')
 const p = {
     name:"Divyanh",
     city:"",
     lname:"Dixit",
-    // fullName:function(){
-    //     return this.name;
-    // },
+    fullName:function(){
+        return this.name;
+    },
+    setcity: function(cityname){
+        this.city = cityname
+    },
     get fullName(){ // work as a prop
         return this.name;
     },
@@ -136,9 +141,18 @@ const p = {
 
     set ChangeLname(newLname){
         this.lname = newLname;
+    },
+
+    set changelnma(lname){
+        this.lname = lname
     }
 
 }
+
+p.changelnma = "new lname"
+console.log(p.lname)
+
+p.name = 'kjkjkjk';
 
 var arr = ['dixit', 'dixit2', 'dixit3'];
 

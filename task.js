@@ -174,3 +174,48 @@ var arr1 = [1,2,3,4,5,6];
 // css combinators
 
  +, > , ~
+
+/*
+captialize code for every word in phrase: 'go to hell'
+
+// 
+a        abc         abcd        abcde       abcdef
+[a_]    [ab, c_]    [ab,cd]    [ab,cd, e_]  [ab,cd, ef]
+*/
+
+
+// Complete the solution so that the function will break up camel casing, using a space between words.
+
+// "camelCasing"  =>  "camel Casing"
+// "camelCasingTest"  =>  "camel Casing Test"
+// "identifier"   =>  "identifier"
+// ""             =>  ""
+
+
+/*
+What is an anagram? Well, two words are anagrams of each other if they both contain the same letters. For example:
+
+'abba' & 'baab' == true
+
+'abba' & 'bbaa' == true
+
+'abba' & 'abbba' == false
+
+'abba' & 'abca' == false
+Write a function that will find all the anagrams of a word from a list. You will be given two inputs a word and an array with words. You should return an array of all the anagrams or an empty array if there are none. For example:
+
+anagrams('abba', ['aabb', 'abcd', 'bbaa', 'dada']) => ['aabb', 'bbaa']
+
+anagrams('racer', ['crazer', 'carer', 'racar', 'caers', 'racer']) => ['carer', 'racer']
+
+anagrams('laser', ['lazing', 'lazy',  'lacer']) => []
+*/
+
+// factorial of given number: 5 = 120.
+
+// if no is repeat.. to delte rest of no except one. , if not then delt that number. 
+
+// console.log(arrayDiff( [1,2,2,2,3,3] , [2,3]) ) // result => [1,2,3];
+// console.log(arrayDiff( [1,2,2,2,3] , [2,3]) ) // result => [1,2];
+
+// https://github.com/divyanshdixit/javascript/blob/main/questions/basic.txt

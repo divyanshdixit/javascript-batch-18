@@ -81,7 +81,27 @@ f.getName =  function(){
 
 f.getName()
 
+var str = new String();
+var obj = {
+    
+};
 
+obj.kl = 'jjj';
+
+Object.freeze(obj);
+
+
+Object.defineProperties(obj, {
+    'jk':{
+        value:'some',
+        writable:false
+    },
+    'kl':{
+        value:'somelll',
+        writable:false
+    }
+})
+// {jk:'some', kl:'hgjh'}
 // Displaying object properties:
 
 // Object.values() => 
@@ -172,6 +192,7 @@ Object.defineProperties(objectname, {  // add r modifies one or more props
         enumerable:true
     }
 })
+/*
 Object.getOwnPropertyDescriptor(person, 'city') //=> value, writable, enumerable, configurable
 Object.getOwnPropertyNames(person) //=> return all props as an array, regardless of enumerable  
 Object.getPrototypeOf(newObj) //=> return the prototype of the object(value of internal prototype)
@@ -185,7 +206,9 @@ Object.seal(object) =>
 // prvent adding new props(not values)
 Object.isSealed(object) => retun true if object is sealed
 Object.freeze(object) => prevent any changes to an object
-Object.isFrozen(object) => return true if object is frozen.
+Object.isFrozen(object) => return true if object is freeze.
+
+if(!Object.isFrozen(object)){} else{}
 */
 
 Object.defineProperty(detail, 'fname', {value:"abhi"})
@@ -278,18 +301,18 @@ console.log(Object.isFrozen(other));
 
 // adding getter and setter using Object.defineProperty()
 
-// Object.defineProperty(objectName, "fullName", {
-    // get : function() {
-    //     return this.fname + this.lname;
-    // }
+Object.defineProperty(objectName, "fullName", {
+    get : function() {
+        return this.fname + this.lname;
+    },
 
-    // set : function(params) {
-    //     this.city= params
-    // }
-// })
+    set : function(params) {
+        this.city= params
+    }
+})
 
 var getSetObj = {
-    fname:'divyansh',
+    fname:`divyansh`,
     lname:'dixit',
     city:''
 }
