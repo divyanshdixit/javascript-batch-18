@@ -7,7 +7,33 @@
     <title>Document</title>
 </head>
 <body>
-    
+    <p id="show"></p>
     <script src="./object_constructor.js"></script>
+
+    <script>
+
+        function show(file){
+            document.getElementById('show').innerHTML = file;
+        }
+
+        function adds(n1,n2, cb){
+            console.log(cb)
+            setTimeout( ( cb ) => {
+                console.log(cb)
+                let sum = n1+n2; // 7 => 0.5 second
+                // cb(sum);// 0.5 second
+                cb(sum);
+                // show(sum)
+                return sum;
+            }, 500, cb)
+        }
+
+        let res = adds(4,3, show);
+
+        // a code that can take some time./
+        // a code that must wait for result.
+        // promise is an obejct that links both side
+
+    </script>
 </body>
 </html>

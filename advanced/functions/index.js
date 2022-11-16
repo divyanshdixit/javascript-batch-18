@@ -88,10 +88,10 @@ fun1()
 
 // counter by using closures:
 // problem:
-let counter = 0;
+// let counter = 0;
 function add(){
-    counter += 1;
-    return counter;
+    counter = counter+ 1;
+    return counter; // 1
 }
 add(); // 1
 add();// 2
@@ -103,7 +103,7 @@ add(); // 1
 // solu:
 
 function add(){
-    let counter = 2;
+    let counter = 0;
     counter += 1;
     return counter;
 }
@@ -127,18 +127,27 @@ function add(){
 
 // now we need a closure.
 add();
+varv t = 0;
 add(); // 
 
-const x = (function(){
-    return 10;
+const closure = (function(){
+    let counter = 0; // local
+    return function(){
+        counter = counter + 1;
+        return counter; // 1
+    }
 })();
 
-console.log(x);
+closure(); // 1
+closure(); // 2
+
 
 // variable add is assigned to the return vslue of self invking function
 // self invoking function runs only oonce , return function expression.
 // closure make it possible to have private varibale for a function/
 // closure is a function having access to parent scope , even after poarent function has close;
+
+// for closures:
 
 const add = (function(){ // parent
     let counter = 0;
@@ -147,6 +156,17 @@ const add = (function(){ // parent
         return counter;
     }
 })();
+
+// we can write like this:
+const addCount = function(counter){ // closure
+    counter = counter + 1;
+    return counter;
+}
+const add = (function(){ // parent
+    let counter = 0;
+    return addCount(counter);
+})();
+
 
 add(); // 1
 add(); // 
@@ -164,3 +184,16 @@ ff();
 console.log(x,y)
 
 // Asynchronus function: 
+
+
+function show(res){
+    document.getElementById('show').innerHTML = res;
+}
+
+function adds(n1,n2){
+    let sum = n1+n2;
+    return sum;
+}
+
+let res = adds(4,3);
+show(res);
