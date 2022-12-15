@@ -117,7 +117,7 @@ add()
 // all function have access to the scope above them
 // js support the nested function
 function add(){
-    let counter = 0;
+    let counter = 0; // local 
     function plus(){ // it has access to the vari of parent function
         counter += 1;
     }
@@ -126,17 +126,30 @@ function add(){
 }
 
 // now we need a closure.
-add();
-varv t = 0;
-add(); // 
+add(); // 1
+add(); // 1
 
 const closure = (function(){
-    let counter = 0; // local
-    return function(){
-        counter = counter + 1;
+    let counter = 0; // local // 1000
+    return function(x){
+        counter = counter + x;
         return counter; // 1
     }
 })();
+
+closure(2) // 1
+closure(2) // 1
+closure(2) // 1
+closure(2) // 1
+closure(5) // 2
+
+var u = (
+    function(){
+        console.log('first')
+        return function(){}
+    }
+)()
+console.log(u); // function(){}
 
 closure(); // 1
 closure(); // 2

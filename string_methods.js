@@ -63,7 +63,9 @@ console.log(whole.slice(6,12)) // start < end-1
 
 console.log(whole.slice(-6)) // -12, -6
 
-console.log(whole.slice(-5, -7));
+console.log(whole.slice(-5, -7)); // give empty string as a result bcz arguments are wrong
+// slice(start, end) => start index must less than end index 
+// examples => str.slice(6,8), str.slice(-7,-5)
 
 
 // substring(start, end)
