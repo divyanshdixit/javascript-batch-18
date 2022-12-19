@@ -34,7 +34,7 @@ function add(n1,n2, cb){ // 1
     return sum;
     // return fetch('https://jsonplaceholder.typicode.com/posts') // promise
     // .then(res => res.json())
-    // .then(data => data)
+    // .then(data => {show(data))
 }
 
 function show(res){

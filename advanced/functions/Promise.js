@@ -141,24 +141,57 @@ display();
 
 // ex:
 // before that:
+const studentRollno = 1;
+
+// 1 st promise
 const prom1 = new Promise((resolve, reject) => {
     setTimeout(() => {
         let rollNo = [1,2,3,4];
-        if(rollNo.includes(1))
-            resolve(rollNo);
+        if(rollNo.includes(studentRollno))
+            resolve({rollArray:rollNo, selectedStudentRollNo:studentRollno}); //
         else 
             reject('err:...')
-    }, 1000);
+    }, 1000); // after 1 sec
 });
 
-const getPromiseFunction = () => {
+// 2nd promise:
+const getStudentData = (rollNo) => {
     return new Promise((resolve, reject) => {
-        setTimeout(() => {
-            let obj =  {
-                name:'divyansh',
-                age:26,
-                
+        setTimeout((rollNo) => {
+            console.log(rollNo) // 
+            if(rollNo.selectedStudentRollNo){
+                let studentDetails =  {
+                    name:'divyansh',
+                    age:26,
+                    rollNo:rollNo.selectedStudentRollNo
+                }
+                resolve(studentDetails);
+            }else{
+                reject('Something went wrong!')
             }
-        }, 2000)
+        }, 2000,rollNo) // after 2 sec
     })
 }
+
+// promise resolution using then()
+
+prom1.then((rollNoData) => {
+    console.log(rollNoData);
+    return getStudentData(rollNoData);
+}, (err) => {console.log(err)})
+.then(studetnDetailData => {
+    console.log(studetnDetailData)
+}, (err1) => console.log(err1))
+
+
+// consume promise using async and await
+
+async function getPromiseData(){
+    // async function retunr a promise:
+    const rollNo = await prom1; // wait till process completed
+    console.log(rollNo);
+    const studetnDetailData = await getStudentData(rollNo)
+
+    return studetnDetailData; // promise
+}
+getPromiseData().then(res => console.log(res))
