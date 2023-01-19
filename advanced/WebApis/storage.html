@@ -1,0 +1,33 @@
+<!-- used for storing/reteriving dataa in the browser -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        // sessionStorage
+        localStorage.setItem('name','storagevalue')
+        localStorage.setItem('obj',JSON.stringify({name:'divyansh'}))
+        localStorage.setItem('arr',['divyansh','abhishek']);
+
+        console.log(localStorage.getItem('name'), JSON.parse(localStorage.getItem('obj')), localStorage.getItem('arr'));
+
+        // key():
+        // removeItem():
+        // clear()
+        console.log(localStorage.length, localStorage.getItem(localStorage.key(1)), 
+        localStorage.removeItem(localStorage.key(1)))
+
+        setTimeout(() => {
+
+            localStorage.clear();
+        }, 5000)
+    </script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+// history object, contains url of websites visited by user
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <button type="button" onclick="gotofirsturl()"> Go </button>
+    <button type="button" onclick="gotoback()"> back </button>
+    <button type="button" onclick="goforward()"> forward </button>
+    
+    <iframe id="inlineFrameExample"
+    title="Inline Frame Example"
+    width="300"
+    height="200"
+    src="">
+</iframe>
+
+    <script>
+        console.log(history);
+        const urls = ['https://www.youtube.com/', 'https://www.facebook.com/login/', 'https://freebitco.in/signup/?op=s&r=6596057'];
+
+        document.querySelector('#inlineFrameExample').src = `https://www.youtube.com/embed/M-wtVn7JiR0" title="COUPLE ARGUMENTS, HOOKS & POCKETS | Vipul Goyal | Stand up Comedy" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>`
+
+        const gotoback = () => {
+            history.back();
+        }
+        const goforward = () => {
+            history.forward();
+        }
+        const gotofirsturl = () => {
+            location.href = urls[0];
+            location.assign(urls[1]);
+        }
+        
+    </script>
+</body>
+</html>

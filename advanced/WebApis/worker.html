@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <div style="width: 100px; height: 100px; background-color: black;" id="worker"> </div>
+    <button type="button" onclick="countFunction()"> Count </button>
+
+    <button type="button" onclick="changeColor(event)"> Change Color </button>
+
+
+    <script>
+        // global object => window
+        const worker = new Worker('file:///Users/divyanshdixit/Desktop/classes/javascript-batch-18/advanced/WebApis/worker.js');
+        console.log('asdsa', worker);
+        
+        const countFunction = () => {
+            
+            worker.onmessage = function(message){
+                console.log(message, message.data);
+                worker.postMessage(message.data);
+                alert(message.data);
+            }
+
+            
+        }
+
+        const changeColor = () => {
+            let workerdiv = document.querySelector('#worker');
+            if(workerdiv.style.backgroundColor == 'black')
+                workerdiv.style.backgroundColor = 'purple';
+            else
+                workerdiv.style.backgroundColor = 'black';
+
+        }
+
+    </script>
+</body>
+</html>
