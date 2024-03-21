@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .error {
+            border: 1px solid red;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <form onsubmit="return formSubmit(event)">
+            <input type="text" rquired id="name" class="inputtext"  onkeydown="return checkForNumber(event, 3);" placeholder="first name"/>
+            <input type="text" required class="inputtext" placeholder="last name" onchange="checkOnlyString(event,1)"/>
+            <input type="password" placeholder="password" onchange="checkPattern(event, /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/, 'password')"/>
+            <input type="email" placeholder="email" onchange="checkPattern(event, /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/, 'email')"/>
+            <button type="submit">submit</button>
+        </form>
+    </div>
+
+    <script>
+        const formSubmit = (e) => {
+            console.log(e, document.forms[0].elements);
+
+            for(let i=0;i<document.forms[0].elements.length-1; i++){
+                if(document.forms[0].elements[i].value.length >= 3){
+                e.target.classList.remove('error');
+                return true;
+            }else {
+                alert('at least 3 chars!');
+                document.forms[0].elements[i].classList.add('error');
+                // addClassList('error');
+                return false;
+            }  
+            }
+            // if(e.target.value.length >= char){
+            //     e.target.classList.remove('error');
+            //     return true;
+            // }else {
+            //     alert('at least 3 chars!');
+            //     e.target.classList.add('error');
+            //     // addClassList('error');
+            //     return false;
+            // }
+            // console.log('first');
+        }
+        function checkPattern(e, pattern, name){
+            if(e.target.value.search(pattern) === -1){
+                alert(`${name} is not valid!`);
+                e.target.classList.add('error');
+                return false;
+            }else {
+                e.target.classList.remove('error');
+                return true;
+            }
+        }
+
+        function checkOnlyString(e,char){
+            // const getInput = document.getElementById('name');
+            // getInput.addEventListener('keypress', (event, char) => checkForNumber(event, char));
+            if(e.target.value.length >= char){
+                e.target.classList.remove('error');
+                return true;
+            }else {
+                alert('at least 3 chars!');
+                e.target.classList.add('error');
+                // addClassList('error');
+                return false;
+            }
+        }
+
+        function checkForNumber(e, char) {
+            console.log( e, e.key, (e.target.value + e.key).trim());
+            let str = (e.target.value + e.key).trim();
+            if(!isNaN(e.key)){ // false=>number, true=>string
+               
+            return ((e.keyCode >= 65 && e.keyCode <= 90) || e.keyCode == 8);
+
+            }else if((e.target.value + e.key).trim().length < char){
+                e.target.classList.add('error');
+                return true;
+            }else{
+                e.target.classList.remove('error');
+                return true;
+            }
+        }
+
+        function getTotalNumberOfChars(e, char){
+            if(e.target.value.length >= char){
+                return true;
+            }else {
+                alert('minimun length is 8 chars!');
+                e.target.classList.add('error');
+                return false;
+            }
+        }
+    </script>
+</body>
+</html>
